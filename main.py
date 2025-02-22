@@ -7,13 +7,14 @@ from src import artwork
 import sys
 import signal
 
+
 is_windows = False
 
 try:
     import gnureadline  
 except: 
     is_windows = True
-    import pyreadline
+    import pyreadline3
 
 
 def printlogo():
@@ -99,8 +100,8 @@ def _quit():
 
 signal.signal(signal.SIGINT, signal_handler)
 if is_windows:
-    pyreadline.Readline().parse_and_bind("tab: complete")
-    pyreadline.Readline().set_completer(completer)
+    pyreadline3.Readline().parse_and_bind("tab: complete")
+    pyreadline3.Readline().set_completer(completer)
 else:
     gnureadline.parse_and_bind("tab: complete")
     gnureadline.set_completer(completer)
@@ -155,8 +156,8 @@ commands = {
 
 signal.signal(signal.SIGINT, signal_handler)
 if is_windows:
-    pyreadline.Readline().parse_and_bind("tab: complete")
-    pyreadline.Readline().set_completer(completer)
+    pyreadline3.Readline().parse_and_bind("tab: complete")
+    pyreadline3.Readline().set_completer(completer)
 else:
     gnureadline.parse_and_bind("tab: complete")
     gnureadline.set_completer(completer)
@@ -172,8 +173,8 @@ while True:
     else:
         signal.signal(signal.SIGINT, signal_handler)
         if is_windows:
-            pyreadline.Readline().parse_and_bind("tab: complete")
-            pyreadline.Readline().set_completer(completer)
+            pyreadline3.Readline().parse_and_bind("tab: complete")
+            pyreadline3.Readline().set_completer(completer)
         else:
             gnureadline.parse_and_bind("tab: complete")
             gnureadline.set_completer(completer)
